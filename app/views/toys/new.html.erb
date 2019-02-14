@@ -1,2 +1,18 @@
 <h1>Toys#new</h1>
 <p>Find me in app/views/toys/new.html.erb</p>
+<%= form_tag toys_path do %>
+  <%= label_tag(:name, 'Name')%>
+  <%= text_field_tag(:name) %>
+  <br/>
+  <%= label_tag(:size, 'Size')%>
+  <%= text_field_tag(:size) %>
+  <br />
+  <%= label_tag(:theme, 'Theme')%>
+  <%= text_field_tag(:theme) %>  
+  <br/>
+  <% @users.each do |user| %>
+    <%= radio_button_tag :user_id, user.id %> <%= user.username %>
+  <% end %>
+  <br />
+<%= submit_tag 'Add Toy' %>
+<% end %>

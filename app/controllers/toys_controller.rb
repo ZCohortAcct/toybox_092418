@@ -3,9 +3,14 @@ class ToysController < ApplicationController
   end
 
   def new
+    @users = User.all
   end
 
   def create
+    # binding.pry
+    byebug
+    toy = Toy.new(params)
+    toy.save
   end
 
   def show
