@@ -46,4 +46,5 @@ class ToysController < ApplicationController
   def set_toy
     @toy = Toy.find(params[:id])
   end
+  
 end
