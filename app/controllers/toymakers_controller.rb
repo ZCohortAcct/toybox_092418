@@ -14,9 +14,12 @@ class ToymakersController < ApplicationController
   def create
     # binding.pry
     # byebug
-    toymaker = Toymaker.new(toymaker_params)
-    toymaker.save
-    redirect_to toymaker_path(toymaker)
+    @toymaker = Toymaker.new(toymaker_params)
+    if @toymaker.save
+      redirect_to toymaker_path(toymaker)
+    else
+      render :new
+    end
   end
 
   def show
