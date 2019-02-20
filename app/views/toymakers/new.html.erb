@@ -1,6 +1,21 @@
 <h1>WELCOME Toymaker!</h1>
 <h3>Add some info about your Co.!</h3>
 
+<% if @toymaker.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@toymaker.errors.count, "error") %>
+      prohibited this information from being saved:
+    </h2>
+ 
+    <ul>
+    <% @toymaker.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @toymaker do |f|  %>
   <%= f.label (:brand) %>
   <%= f.text_field(:brand) %>

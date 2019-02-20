@@ -18,6 +18,7 @@ class ToymakersController < ApplicationController
     if @toymaker.save
       redirect_to toymaker_path(toymaker)
     else
+      # byebug
       render :new
     end
   end
