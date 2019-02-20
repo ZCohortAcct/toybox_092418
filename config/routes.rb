@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :toymakers
   # VERB -- PATH (URL) -- CONTROLLER#ACTION
   get '/toys', to: 'toys#index'
   get '/toys/new'
