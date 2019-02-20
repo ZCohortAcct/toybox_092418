@@ -7,7 +7,8 @@ class ToymakersController < ApplicationController
 
   def new
     @toymaker = Toymaker.new()
-    
+    @toymaker.toys.build
+    @toymaker.toys.build
   end
 
   def create
@@ -40,7 +41,11 @@ class ToymakersController < ApplicationController
   private
   #strong params
   def toymaker_params
-    params.require(:toymaker).permit(:brand, :kind, :age)
+    params.require(:toymaker).permit(:brand, :kind, :age, toys_attributes: [
+      :name,
+      :size,
+      :theme
+    ])
   end
 
   def set_toymaker

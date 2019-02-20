@@ -1,0 +1,29 @@
+<h1>WELCOME Toymaker!</h1>
+<h3>Add some info about your Co.!</h3>
+
+<%= form_for @toymaker do |f|  %>
+  <%= f.label (:brand) %>
+  <%= f.text_field(:brand) %>
+  <br/>
+  <%= f.label :kind %>
+  <%= f.text_field(:kind) %>
+  <br/>
+  <%= f.label( :age) %>
+  <%= f.text_field(:age) %>
+  <br/>
+  <h3>Add some of your toys, plz =D </h3>
+  <%= f.fields_for :toys do |t| %>
+    <%= t.label (:name) %>
+    <%= t.text_field(:name) %>
+    <br/>
+    <%= t.label :size %>
+    <%= t.text_field(:size) %>
+    <br/>
+    <%= t.label( :theme) %>
+    <%= t.text_field(:theme) %>
+  <br/>
+  <br/>
+  <% end %>
+  <br/>
+  <%= f.submit%>
+<% end %>

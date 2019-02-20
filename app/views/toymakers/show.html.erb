@@ -1,0 +1,10 @@
+<h1><%= @toymaker.brand %> Toys</h1>
+
+<% @toymaker.toys.each do |toy| %>
+<h3>Name: <%= toy.name %></h3>
+<p>Size: <%= toy.size %></p>
+<p>Theme: <%= toy.theme %></p>
+<br />
+<br />
+<% end %>
+<%#= button_to 'Remove Toy', toy_path(@toy), method: :delete, data: {confirm: 'Is the toy really broken!'}%>
