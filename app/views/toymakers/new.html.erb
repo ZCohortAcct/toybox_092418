@@ -2,7 +2,7 @@
 <h3>Add some info about your Co.!</h3>
 
 <% if @toymaker.errors.any? %>
-  <div id="error_explanation">
+  <div class="jumbotron">
     <h2>
       <%= pluralize(@toymaker.errors.count, "error") %>
       prohibited this information from being saved:
