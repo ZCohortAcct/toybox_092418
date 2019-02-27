@@ -52,6 +52,22 @@ class ToymakersController < ApplicationController
     ])
   end
 
+  #how drawing of how the params will look
+  # params {
+  #   auth_token: ...., 
+  #   toymaker: {
+  #     brand: ..,
+  #     kind: ...,
+  #     age: ...,
+  # toy_attributes is set equal to an array to allow multiple toy_obj values to be created
+  # the keys associate w/in toys_attributes hash rep index (or location) of element in arr
+  #     toys_attributes: {
+  #       0: {name:...., size: ..., theme: ...},
+  #       1: {name:...., size: ..., theme: ...}
+  #     }
+  #   }
+  # }
+
   def set_toymaker
     @toymaker = Toymaker.find(params[:id])
   end
