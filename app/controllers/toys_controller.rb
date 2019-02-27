@@ -13,9 +13,13 @@ class ToysController < ApplicationController
   def create
     # binding.pry
     # byebug
-    toy = Toy.new(toy_params)
-    toy.save
-    redirect_to toy_path(toy)
+    @toy = Toy.new(toy_params)
+    if @toy.save
+      redirect_to toy_path(@toy)
+    else
+      @users = User.all
+      render :new
+    end
   end
 
   def show
@@ -27,8 +31,12 @@ class ToysController < ApplicationController
 
   def update
     # byebug
-    @toy.update(toy_params)
-    redirect_to toy_path(@toy)
+    if @toy.update(toy_params)
+      redirect_to toy_path(@toy)
+    else
+      @users = User.all
+      render :edit 
+    end
   end
 
   def destroy

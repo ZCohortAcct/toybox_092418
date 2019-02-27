@@ -1,4 +1,6 @@
 <h1>Add a NEW Toy</h1>
+<%= error_messages(@toy) %>
+
 <%= form_for @toy do |f|  %>
   <%= f.label (:name) %>
   <%= f.text_field(:name) %>
