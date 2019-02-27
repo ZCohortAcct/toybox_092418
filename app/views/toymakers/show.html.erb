@@ -1,5 +1,5 @@
 <h1><%= @toymaker.brand %> Toys</h1>
-
+<p> <%= opening_year(@toymaker) %></p>
 <% @toymaker.toys.each do |toy| %>
 <h3>Name: <%= toy.name %></h3>
 <p>Size: <%= toy.size %></p>
