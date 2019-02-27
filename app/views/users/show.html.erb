@@ -1,2 +1,7 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Hi <%= @user.username %>!</h1>
+<h3>Which of you toys would you like to see?</h3>
+<ul>
+  <% @user.toys.each do |toy| %>
+      <li><%= link_to toy.name, toy_path(toy) %>
+    <% end %></li>
+</ul>
