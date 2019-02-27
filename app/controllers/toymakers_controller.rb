@@ -8,7 +8,6 @@ class ToymakersController < ApplicationController
   def new
     @toymaker = Toymaker.new()
     @toymaker.toys.build
-    @toymaker.toys.build
   end
 
   def create
@@ -24,6 +23,7 @@ class ToymakersController < ApplicationController
   end
 
   def show
+    # byebug
   end
 
   def edit
