@@ -24,6 +24,10 @@ class ToymakersController < ApplicationController
 
   def show
     # byebug
+    # VIEW_HELPER_METHOD
+    # opening_year(@toymaker) #=> error undef method (PR method)
+    # MODEL_METHOD
+    # @toymaker.opening_year #=> this is an instance method (OOR method)
   end
 
   def edit
