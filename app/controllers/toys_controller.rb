@@ -13,6 +13,7 @@ class ToysController < ApplicationController
   def new
     @toy = Toy.new()
     @users = User.all
+    @toymakers = Toymaker.all 
   end
 
   def create
