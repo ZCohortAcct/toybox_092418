@@ -2,7 +2,12 @@ class ToysController < ApplicationController
   before_action :set_toy, only: [:show, :edit, :update, :destroy]
 
   def index
+   @toymakers = Toymaker.all
+   if params[:toymaker_id]
+     @toys = Toymaker.find(params[:toymaker_id]).toys
+   else
     @toys = Toy.all
+   end
   end
 
   def new
@@ -35,7 +40,7 @@ class ToysController < ApplicationController
       redirect_to toy_path(@toy)
     else
       @users = User.all
-      render :edit 
+      render :edit
     end
   end
 
@@ -54,5 +59,5 @@ class ToysController < ApplicationController
   def set_toy
     @toy = Toy.find(params[:id])
   end
-  
+
 end

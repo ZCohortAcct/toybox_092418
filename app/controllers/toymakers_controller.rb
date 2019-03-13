@@ -31,7 +31,7 @@ class ToymakersController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update
@@ -58,7 +58,7 @@ class ToymakersController < ApplicationController
 
   #how drawing of how the params will look
   # params {
-  #   auth_token: ...., 
+  #   auth_token: ....,
   #   toymaker: {
   #     brand: ..,
   #     kind: ...,
@@ -75,5 +75,5 @@ class ToymakersController < ApplicationController
   def set_toymaker
     @toymaker = Toymaker.find(params[:id])
   end
-  
+
 end
