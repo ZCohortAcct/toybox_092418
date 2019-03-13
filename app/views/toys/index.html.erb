@@ -2,6 +2,9 @@
 <% if @toys.length < 5 %>
   <h4>Lets add some toys</h4>
   <p>Add by band</p> 
+  <ul><% @toymakers.each do |toymaker| %>
+    <li><%= link_to toymaker.brand, new_toymaker_toy_path(toymaker) %></li>
+  <% end%></ul>
   <p>or just, <%= link_to 'Add a toy', toys_new_path %></p>
 <% else %>
   <h4>There's a lot of toys here</h4>
