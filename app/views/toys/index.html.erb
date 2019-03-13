@@ -1,6 +1,18 @@
-<h1>Toys#index</h1>
+<h1>Here's all the Toys in our ToyBox</h1>
+<% if @toys.length < 5 %>
+  <h4>Lets add some toys</h4>
+  <p>Add by band</p> 
+  <p>or just, <%= link_to 'Add a toy', toys_new_path %></p>
+<% else %>
+  <h4>There's a lot of toys here</h4>
+<% end %>
+
 <ul>
   <% @toys.each do |toy| %>
-    <li><b><%= toy.name %></b> make by <b><%= toy.toymaker.brand %></b></li>
+    <% if toy.toymaker %>
+      <li><b><%= toy.name %></b> make by <b><%= toy.toymaker.brand  %></b></li>
+    <% else %>
+      <li><b><%= toy.name %></b> </li>
+    <% end %>
   <% end %>
 </ul>
