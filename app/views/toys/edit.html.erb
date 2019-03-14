@@ -18,6 +18,10 @@
   <%# @users.each do |user| %>
    <%#= radio_button_tag(:user_id, user.id)%><%#=  user.username %>
   <%# end %>
+
+  <br>
+  <label>Toymaker</label><br/>
+  <%= collection_radio_buttons(:toy, :toymaker_id, @toymakers, :id, :brand)%>
   <br/>
   <%= f.submit%>
 <% end %>
