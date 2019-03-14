@@ -11,7 +11,9 @@ class ToysController < ApplicationController
   end
 
   def new
-    @toy = Toy.new()
+    # binding.pry
+    @toy = Toy.new(toymaker_id: params[:toymaker_id])
+
     @users = User.all
     @toymakers = Toymaker.all 
   end
@@ -32,7 +34,10 @@ class ToysController < ApplicationController
   end
 
   def edit
+    binding.pry
     @users = User.all
+    @toymakers = Toymaker.all 
+
   end
 
   def update
