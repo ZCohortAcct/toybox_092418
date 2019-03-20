@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'toys#index'
+  
   resources :toymakers do
     resources :toys, only: %i(new index)
   end
