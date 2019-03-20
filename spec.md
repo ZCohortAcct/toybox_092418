@@ -8,12 +8,13 @@
   > least two `has_many :through`
     - User has_many Toymakers, through Toys
     - Toymaker has_many Users, through Toys
-  *> least one `many-to-many` 
+  *> least one `many-to-many`
     *- implemented with has_many :through associations:
       *a) User has_many UsersToys
       *b) User has_many Toys, through UsersToys
       *c) Toy has_many UsersToys
       *c) Toy has_many Users, through UsersToys
+      *d) has_many_and_belongs_to_many: toys
     *- join table must include a user-submittable attribute:    *a) status, i.e: old || new
       *a) functionality, i.e: working || broken
 
@@ -40,9 +41,9 @@
   > fields enclosed within a fields_with_errors class
   > Error messages describing the validation failures are present within view
 
-[] 9. DRY (Do-Not-Repeat-Yourself) rails app 
-  *> methods in your models, that are used in contorller: SCOPE METHOD 
-  > helper methods: 
+[] 9. DRY (Do-Not-Repeat-Yourself) rails app
+  *> methods in your models, that are used in contorller: SCOPE METHOD
+  > helper methods:
     - ApplicationHelper#error_messages_for
     - ToymakersHelper#toymaker_opening_year
     - ToysHelper#toymaker_link
