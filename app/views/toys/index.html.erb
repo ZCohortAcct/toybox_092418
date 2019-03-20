@@ -1,15 +1,16 @@
 <h1>Here's all the Toys in our ToyBox</h1>
-<% if @toys.length < 5 %>
-  <h4>Lets add some toys</h4>
-  <p>Add by band</p> 
-  <ul><% @toymakers.each do |toymaker| %>
-    <li><%= link_to toymaker.brand, new_toymaker_toy_path(toymaker) %></li>
-  <% end%></ul>
-  <p>or just, <%= link_to 'Add a toy', toys_new_path %></p>
+<h2><%= title_message(@toys) %></h2>
+<% if @toys == {} #current_user temporary conditional, to stop code from breaking, need to build #current_user %>
+  <h2>Lets add more! =D</h2>
+  <h4>Add by Brand  </h4>
+    <ul><% @toymakers.each do |toymaker| %>
+      <li><%= link_to toymaker.brand, new_toymaker_toy_path(toymaker) %></li>
+    <% end %></ul>
+ 
+  <h4>or just, <%= link_to 'Add a toy', new_toy_path %></h4>
 <% else %>
-  <h4>There's a lot of toys here</h4>
+  <p>Login or SignUp to add toys to our toybox</p>
 <% end %>
-
 <ul>
   <% @toys.each do |toy| %>
     <% if toy.toymaker %>
