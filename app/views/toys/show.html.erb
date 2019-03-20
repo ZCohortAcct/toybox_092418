@@ -1,5 +1,6 @@
 <h1><%= @toy.name %></h1>
-<h3>Belongs to: <%= @toy.user.username%></h3>
+<h3>This toy was made by <em><%= @toy.toymaker.brand%></h3></em>
+
 <p>Size: <%= @toy.size %></p>
 <p>Theme: <%= @toy.theme %></p>
 
