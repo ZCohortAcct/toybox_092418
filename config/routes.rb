@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :users, only: [:index, :show]
   resources :toymakers do
     resources :toys, only: %i(new index)
   end
+  
+  # resources :users, only: [:index, :show]
+
   # VERB -- PATH (URL) -- CONTROLLER#ACTION
   get '/toys', to: 'toys#index'
   get '/toys/new'
