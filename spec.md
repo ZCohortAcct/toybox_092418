@@ -17,7 +17,9 @@
     *- join table must include a user-submittable attribute:    *a) status, i.e: old || new
       *a) functionality, i.e: working || broken
 
-[] 3. Models include reasonable validations for the simple attributes
+[X] 3. Models include reasonable validations for the simple attributes
+  > Toy objects presence for name, size, theme
+  > Toymaker objects presence for brand, kind, age
 
 [] 4. Include at least one class level ActiveRecord `scope method`
   > Chainable scope method:
