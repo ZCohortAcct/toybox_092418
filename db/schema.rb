@@ -32,11 +32,4 @@ ActiveRecord::Schema.define(version: 2019_02_20_201654) do
     t.index ["user_id"], name: "index_toys_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end

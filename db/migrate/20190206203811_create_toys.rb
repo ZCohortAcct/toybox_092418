@@ -4,7 +4,6 @@ class CreateToys < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :size
       t.string :theme
-      t.references :user, foreign_key: true
 
       t.timestamps
     end

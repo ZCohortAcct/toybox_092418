@@ -10,7 +10,7 @@ toymakers = [
   # ['Hasbro', 'social edu', 96]
 ]
 
-toymakers.each do |co| 
+toymakers.each do |co|
   Toymaker.create(brand: co[0], kind: co[1], age: co[2])
 end
 
@@ -30,6 +30,6 @@ toy_list.each do |toy|
   Toy.create!(name: toy[0], size: toy[1], theme: toy[2], toymaker_id: toy[3])
 end
 
-User.create(username: 'Mallory', password: '123')
-
-User.create(username: 'Joey', password: '123')
+# User.create(username: 'Mallory', password: '123')
+#
+# User.create(username: 'Joey', password: '123')
