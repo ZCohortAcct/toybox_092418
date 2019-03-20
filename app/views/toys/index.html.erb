@@ -6,7 +6,7 @@
     <ul><% @toymakers.each do |toymaker| %>
       <li><%= link_to toymaker.brand, new_toymaker_toy_path(toymaker) %></li>
     <% end %></ul>
- 
+
   <h4>or just, <%= link_to 'Add a toy', new_toy_path %></h4>
 <% else %>
   <p>Login or SignUp to add toys to our toybox</p>
@@ -14,7 +14,7 @@
 <ul>
   <% @toys.each do |toy| %>
     <% if toy.toymaker %>
-      <li><b><%= toy.name %></b> make by <b><%= toy.toymaker.brand  %></b></li>
+      <li><b><%= link_to toy.name, toy_path(toy) %></b> make by <b><%= toy.toymaker.brand  %></b></li>
     <% else %>
       <li><b><%= toy.name %></b> </li>
     <% end %>
