@@ -24,12 +24,10 @@ ActiveRecord::Schema.define(version: 2019_02_20_201654) do
     t.string "name"
     t.string "size"
     t.string "theme"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "toymaker_id"
     t.index ["toymaker_id"], name: "index_toys_on_toymaker_id"
-    t.index ["user_id"], name: "index_toys_on_user_id"
   end
 
 end
