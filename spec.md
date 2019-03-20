@@ -23,7 +23,7 @@
   > Toymaker objects presence for brand, kind, age
 
 [] 4. Include at least one class level ActiveRecord `scope method`
-  > Chainable scope method:
+  > Chainable scope method: Toymaker seeing it's users
 
 []  5. Provide standard user authentication
   > signup: #route
@@ -31,7 +31,7 @@
   > logout: #route
   > password: objects have attribute
 
-[] 6. OAuthentication system: Github
+[] 6. OAuthentication system: Google
 
 [X] 7. Include and make use of a nested resource with the appropriate RESTful URLs.
   > nested `new` route: '/toymakers/:toymaker_id/toys/new'
