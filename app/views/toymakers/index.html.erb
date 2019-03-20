@@ -1,0 +1,11 @@
+<h1>The toy industry is <em>BOOM'N!</em></h1>
+<% if current_user %>
+  <h2>Are we missing your <em>favorite</em> toymaker?</h2>
+  <h4>Add them here: <%= link_to 'New toymaker', new_toymaker_path %></h4>
+<% else %>
+  <p><%= link_to 'Login', new_user_session_path %> or <%= link_to 'SignUp', new_user_registration_path %> to add toymaker to our toybox</p>
+<% end %>
+
+<ul><% @toymakers.each do |toymaker| %>
+  <li><b><%= link_to toymaker.brand, toymaker_path(toymaker) %></b> this buisness has been around for <b><%= toymaker.age %></b> years! </li>
+<% end %></ul>
