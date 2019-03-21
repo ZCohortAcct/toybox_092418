@@ -1,7 +1,9 @@
 class ToysController < ApplicationController
+  before_action :authenticate_user!, except: %i(index show)
   before_action :set_toy, only: [:show, :edit, :update, :destroy]
 
   def index
+   # byebug
    @toymakers = Toymaker.all
    if params[:toymaker_id]
      @toys = Toymaker.find(params[:toymaker_id]).toys

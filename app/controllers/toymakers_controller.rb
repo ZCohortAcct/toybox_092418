@@ -1,4 +1,5 @@
 class ToymakersController < ApplicationController
+  before_action :authenticate_user!, except: %i(index show)
   before_action :set_toymaker, only: [:show, :edit, :update, :destroy]
 
   def index
