@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 gem 'devise'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-amazon'
 
 gem 'dotenv-rails', '~> 2.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
