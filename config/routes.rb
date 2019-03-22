@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  
+  # route route
   root to: 'toys#index'
+  
+  resources :users, only: :show
   
   resources :toymakers do
     resources :toys, only: %i(new index)
