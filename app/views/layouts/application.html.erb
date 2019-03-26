@@ -11,7 +11,10 @@
 
   <body>
     <%= render 'application/alert' %>
-    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete if user_signed_in? %>
+    <% if user_signed_in?  %>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> |
+      <%= link_to 'Profile Page', user_path(current_user) %> | <%= link_to 'Main Page', toys_path %> 
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # resources :users, only: [:index, :show]
 
   # VERB -- PATH (URL) -- CONTROLLER#ACTION
-  get '/toys', to: 'toys#index'
+  get '/toys', to: 'toys#index', as: 'toys'
   get '/toys/new'
   post '/toys', to: 'toys#create'
   get '/toys/:id', to: 'toys#show', as: 'toy'
