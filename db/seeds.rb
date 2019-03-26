@@ -30,6 +30,6 @@ toy_list.each do |toy|
   Toy.create!(name: toy[0], size: toy[1], theme: toy[2], toymaker_id: toy[3])
 end
 
-# User.create(username: 'Mallory', password: '123')
-#
-# User.create(username: 'Joey', password: '123')
+User.create(username: 'Mallory', password: '123')
+
+User.create(username: 'Joey', password: '123')
