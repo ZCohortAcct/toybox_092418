@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_22_212048) do
+ActiveRecord::Schema.define(version: 2019_03_27_191731) do
 
   create_table "toymakers", force: :cascade do |t|
     t.string "brand"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 2019_03_22_212048) do
     t.datetime "updated_at", null: false
     t.integer "toymaker_id"
     t.index ["toymaker_id"], name: "index_toys_on_toymaker_id"
+  end
+
+  create_table "toys_users", force: :cascade do |t|
+    t.datetime "toy_rent_date"
+    t.datetime "toy_return_date"
+    t.boolean "functional"
+    t.integer "user_id"
+    t.integer "toy_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["toy_id"], name: "index_toys_users_on_toy_id"
+    t.index ["user_id"], name: "index_toys_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

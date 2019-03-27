@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :toys_user
+  has_many :toys, through: :toys_user
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and 
   devise :database_authenticatable, :registerable,

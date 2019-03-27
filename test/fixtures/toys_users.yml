@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  toy_rent_date: 2019-03-27 14:17:31
+  toy_return_date: 2019-03-27 14:17:31
+  functional: false
+  user: one
+  toy: one
+
+two:
+  toy_rent_date: 2019-03-27 14:17:31
+  toy_return_date: 2019-03-27 14:17:31
+  functional: false
+  user: two
+  toy: two
