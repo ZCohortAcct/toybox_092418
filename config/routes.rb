@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # resources :toys_users, only: %i(new create update)
+
+  get 'rent/toy/:toy_id', to: 'toys_users#new', as: 'new_rental'
+  post 'rent', to: 'toys_users#create', as: 'toys_users'
+  patch '/rent/toy/:toy_id', to: 'toys_users#update', as: 'toys_user'
+
+
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   
   # route route

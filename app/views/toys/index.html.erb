@@ -14,6 +14,9 @@
 <% end %>
 <ul>
   <% @toys.each do |toy| %>
-    <li><b><%= link_to toy.name, toy_path(toy) %></b> make by <b><%= toy.toymaker.brand  %></b></li>
+    <li>
+      <b><%= link_to toy.name, toy_path(toy) %></b> make by <b><%= toy.toymaker.brand  %></b>
+       <%= button_to 'Rent Me', new_rental_path(toy), method: :get if user_signed_in? %>
+    </li>
   <% end %>
 </ul>
