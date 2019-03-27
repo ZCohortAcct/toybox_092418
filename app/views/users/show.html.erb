@@ -1,10 +1,25 @@
 <h1>Hi <%= @user.email %>!</h1>
-<h3>Which of your toys would you like to see?</h3>
-<ul>
+  <h3>Here are the toys your <em>currently</em> renting</h3><ul>
   <% @user.toys.each do |toy| %>
-    <li>
-      <%= link_to toy.name, toy_path(toy) %><p>Created by: <%= toymaker_link(toy)  %></p>
-      <%= button_to 'Return Toy', toys_user_path(toy), method: :patch %>
-    </li>
+    <% if toy.currently_rented?(@user) %>
+      <li>
+        <%= link_to toy.name, toy_path(toy) %><p>Created by: <%= toymaker_link(toy)  %></p>
+        <%= button_to 'Return Toy', toys_user_path(toy), method: :patch %>
+      </li>
     <% end %>
+  <% end %>
 </ul>
+  
+<h3>Here are the toys your <em>past</em> rentals!</h3>
+<ol>
+<% @user.toys.each do |toy| %>
+    <% date = toy.past_rental_date(@user)%>
+    <% if date %>
+      <li>
+        <p><%= link_to toy.name, toy_path(toy) %> Created by: <%= toymaker_link(toy)  %>
+        </p>
+        <p>Returned on <b><%= date.strftime("%a. %B %d, %Y") %></b></p>
+      </li>
+    <% end %>
+  <% end %>
+</ol>
