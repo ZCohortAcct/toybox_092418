@@ -14,10 +14,6 @@
 <% end %>
 <ul>
   <% @toys.each do |toy| %>
-    <% if toy.toymaker %>
-      <li><b><%= link_to toy.name, toy_path(toy) %></b> make by <b><%= toy.toymaker.brand  %></b></li>
-    <% else %>
-      <li><b><%= toy.name %></b> </li>
-    <% end %>
+    <li><b><%= link_to toy.name, toy_path(toy) %></b> make by <b><%= toy.toymaker.brand  %></b></li>
   <% end %>
 </ul>
