@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_191731) do
   create_table "toys_users", force: :cascade do |t|
     t.datetime "toy_rent_date"
     t.datetime "toy_return_date"
-    t.boolean "functional"
+    t.boolean "functional", default: true
     t.integer "user_id"
     t.integer "toy_id"
     t.datetime "created_at", null: false
