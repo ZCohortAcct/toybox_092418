@@ -1,0 +1,30 @@
+<%= form_for form_toy do |f|  %>
+  <%= f.label (:name) %>
+  <%= f.text_field(:name) %>
+  <br/>
+  <%= f.label :size %>
+  <%= f.text_field(:size) %>
+  <br/>
+  <%= f.label( :theme) %>
+  <%= f.text_field(:theme) %>
+  <br/>
+  <!-- <label>Owner</label><br/> -->
+  <%#= collection_radio_buttons(:toy, :user_id, @users, :id, :username)%>
+  <%# @users.each do |user| %>
+   <%#= radio_button_tag(:user_id, user.id)%><%#=  user.username %>
+  <%# end %>
+
+  <br>
+  <label>Toymaker</label><br/>
+  <%= collection_radio_buttons(:toy, :toymaker_id, @toymakers, :id, :brand)%>
+
+  <%# @toymakers.each do |toymaker| %>
+   <%#= radio_button_tag(:toymaker_id, toymaker.id)%><%#= toymaker.brand %>
+  <%# end %>
+  
+  <%# collection_radio_buttons(:post, :author_id, Author.all, :id, :name_with_initial) %>
+
+
+  <br/>
+  <%= f.submit%>
+<% end %>
