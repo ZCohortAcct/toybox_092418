@@ -34,7 +34,7 @@ class ToysController < ApplicationController
   end
 
   def edit
-    binding.pry
+    # binding.pry
     @toymakers = Toymaker.all 
 
   end
