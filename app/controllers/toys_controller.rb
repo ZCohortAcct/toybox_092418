@@ -15,8 +15,6 @@ class ToysController < ApplicationController
   def new
     # binding.pry
     @toy = Toy.new(toymaker_id: params[:toymaker_id])
-
-    @users = User.all
     @toymakers = Toymaker.all 
   end
 
@@ -27,7 +25,7 @@ class ToysController < ApplicationController
     if @toy.save
       redirect_to toy_path(@toy)
     else
-      @users = User.all
+      @toymakers = Toymaker.all 
       render :new
     end
   end
@@ -37,7 +35,6 @@ class ToysController < ApplicationController
 
   def edit
     binding.pry
-    @users = User.all
     @toymakers = Toymaker.all 
 
   end
@@ -47,7 +44,7 @@ class ToysController < ApplicationController
     if @toy.update(toy_params)
       redirect_to toy_path(@toy)
     else
-      @users = User.all
+      @toymakers = Toymaker.all 
       render :edit
     end
   end
@@ -61,7 +58,7 @@ class ToysController < ApplicationController
   private
   #strong params
   def toy_params
-    params.require(:toy).permit(:name, :size, :theme, :user_id)
+    params.require(:toy).permit(:name, :size, :theme, :toymaker_id)
   end
 
   def set_toy
