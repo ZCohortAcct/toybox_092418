@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   def show
     # need to protect routes
       # binding.pry
+      # binding.pry
+    @rentals = ToysUser.user_past_rentals(@user)
+    @toys = @rentals.map(&:toy)
     redirect_to new_user_session_path if current_user.id != @user.id
   end
 

@@ -10,7 +10,20 @@
   <% end %>
 </ul>
   
-<h3>Here are the toys your <em>past</em> rentals!</h3>
+<h3>CONTROLLER METHODS: Here are the toys your <em>past</em> rentals!</h3>
+<ol>
+<% @toys.each do |toy| %>
+    <% date = @rentals.find{|obj|obj.toy == toy}.toy_return_date %>
+      <li>
+        <p><%= link_to toy.name, toy_path(toy) %> Created by: <%= toymaker_link(toy)  %>
+        </p>
+        <p>Returned on <b><%= date.strftime("%a. %B %d, %Y") %></b></p>
+      </li>
+  <% end %>
+</ol>
+
+
+<h3>MODEL METHODS: Here are the toys your <em>past</em> rentals!</h3>
 <ol>
 <% @user.toys.each do |toy| %>
     <% date = toy.past_rental_date(@user)%>
