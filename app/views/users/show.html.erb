@@ -4,7 +4,9 @@
     <% if toy.currently_rented?(@user) %>
       <li>
         <%= link_to toy.name, toy_path(toy) %><p>Created by: <%= toymaker_link(toy)  %></p>
-        <%= button_to 'Return Toy', toys_user_path(toy), method: :patch %>
+        <%# binding.pry %>
+        <%= button_to 'Return Toy', toy_rental_update_path(toy,  toy.contract(@user)),
+        method: :patch %>
       </li>
     <% end %>
   <% end %>

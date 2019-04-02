@@ -10,6 +10,11 @@ class Toy < ApplicationRecord
     toys_user.where(toy_return_date: [nil, ''], user_id: user.id) != []
   end
 
+  # find rental contract
+  def contract(user)
+    toys_user.find_by(user_id: user.id)
+  end
+
   def past_rental_date(user)
     # ToysUser.past_toy_rentals(self, user)
     result = toys_user.where(user_id: user.id).where.not(toy_return_date: [nil, ''])

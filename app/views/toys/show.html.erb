@@ -3,6 +3,6 @@
 
 <p>Size: <%= @toy.size %></p>
 <p>Theme: <%= @toy.theme %></p>
-<%= button_to 'Rent Me', new_rental_path(@toy), method: :get %>
+<%= button_to 'Rent Me', toy_rental_new_path(@toy), method: :get %>
 
 <%= button_to 'Remove Toy', toy_path(@toy), method: :delete, data: {confirm: 'Is the toy really broken!'}%>

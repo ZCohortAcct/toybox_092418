@@ -3,7 +3,7 @@
     <br>
     <h3>Please ensure the data on this form to correct to complete your checkout!</h3>
 
-     <%= form_for @toyuser, url: '/rent' do |f| %>
+     <%= form_for @toyuser, url: toy_rental_path do |f| %>
       <%= f.label(:toy_rental_date) %>
       <%= f.text_field(:toy_rent_date, value: Date.today.strftime("%a. %B %d, %Y"), required: true ) %><br>
       <%= f.label("Uncheck the box, if the toy isn't functioning correctly") %>

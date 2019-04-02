@@ -8,7 +8,7 @@
       <li><%= link_to toymaker.brand, new_toymaker_toy_path(toymaker) %></li>
     <% end %></ul>
 
-  <h4>or just, <%= link_to 'Add a toy', toys_new_path %></h4>
+  <h4>or just, <%= link_to 'Add a toy', new_toy_path %></h4>
 <% else %>
   <p><%= link_to 'Login', user_session_path %>  or <%= link_to 'SignUp', new_user_registration_path %> to add toys to our toybox</p>
 <% end %>
@@ -16,7 +16,7 @@
   <% @toys.each do |toy| %>
     <li>
       <b><%= link_to toy.name, toy_path(toy) %></b> make by <b><%= toy.toymaker.brand  %></b>
-       <%= button_to 'Rent Me', new_rental_path(toy), method: :get if user_signed_in? %>
+       <%= button_to 'Rent Me', toy_rental_new_path(toy), method: :get if user_signed_in? %>
     </li>
   <% end %>
 </ul>
