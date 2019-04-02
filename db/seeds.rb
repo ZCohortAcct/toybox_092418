@@ -30,7 +30,6 @@ toy_list.each do |toy|
   Toy.create!(name: toy[0], size: toy[1], theme: toy[2], toymaker_id: toy[3])
 end
 
-User.create(email: 'mal123@gmail.com', password: 'password')
+User.create(username: 'Mallory', email: 'mal123@gmail.com', password: 'password')
 
-User.create(email: 'joey123@gmail.com', password: 'password')
-
+User.create(username: 'Joey', email: 'joey123@gmail.com', password: 'password')

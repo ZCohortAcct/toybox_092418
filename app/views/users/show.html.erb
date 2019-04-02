@@ -1,4 +1,4 @@
-<h1>Hi <%= @user.email %>!</h1>
+<h1>Hi <%= @user.username %>!</h1> <%= link_to 'Edit Profile',  edit_user_registration_path %>
   <h3>Here are the toys your <em>currently</em> renting</h3><ul>
   <% @user.toys.each do |toy| %>
     <% if toy.currently_rented?(@user) %>
@@ -9,7 +9,7 @@
     <% end %>
   <% end %>
 </ul>
-  
+
 <h3>CONTROLLER METHODS: Here are the toys your <em>past</em> rentals!</h3>
 <ol>
 <% @toys.each do |toy| %>
