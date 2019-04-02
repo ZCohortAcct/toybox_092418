@@ -2,12 +2,12 @@ class Toy < ApplicationRecord
   belongs_to :toymaker
   has_many :toys_user
   has_many :user, through: :toys_user
-  
+
   validates :name, :size, :theme, presence: true
 
   def currently_rented?(user)
-    t.toys_user.find_by(user_id: user.id)
-    # ToysUser.toy_currently_rented?(self, user)
+    # t.toys_user.find_by(user_id: user.id)
+    ToysUser.toy_currently_rented?(self, user)
   end
 
   def past_rental_date(user)
