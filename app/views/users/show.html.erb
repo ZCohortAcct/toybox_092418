@@ -1,31 +1,25 @@
 <h1>Hi <%= @user.username %>!</h1> <%= link_to 'Edit Profile',  edit_user_registration_path %>
-  <h3>Here are the toys your <em>currently</em> renting</h3><ul>
+  <h3>Here are the toys your <em>current & future</em> rental</h3>
+  <p>Future rentals are enclosed in a <b style="
+    color: orange">ORANGE</b> box</p>
+  <ul>
   <% @user.toys.each do |toy| %>
     <% if toy.currently_rented?(@user) %>
-      <li>
-        <%= link_to toy.name, toy_path(toy) %><p>Created by: <%= toymaker_link(toy)  %></p>
+    <% contract = toy.contract(@user) %>
+      <li class =<%= "future-rental" unless (contract.toy_rent_date <= Date.today) %> >
+        Checkout date: <b><%= contract.toy_rent_date.strftime("%a. %B %d, %Y") %></b></br>
+        <%= link_to toy.name, toy_path(toy) %>
+        <p>Created by: <%= toymaker_link(toy)  %></p>
         <%# binding.pry %>
-        <%= button_to 'Return Toy', toy_rental_update_path(toy,  toy.contract(@user)),
+        <%#= button_to 'Return Toy', toy_rental_update_path(toy,  toy.contract(@user)),
         method: :patch %>
       </li>
     <% end %>
   <% end %>
 </ul>
 
-<h3>CONTROLLER METHODS: Here are the toys your <em>past</em> rentals!</h3>
-<ol>
-<% @toys.each do |toy| %>
-    <% date = @rentals.find{|obj|obj.toy == toy}.toy_return_date %>
-      <li>
-        <p><%= link_to toy.name, toy_path(toy) %> Created by: <%= toymaker_link(toy)  %>
-        </p>
-        <p>Returned on <b><%= date.strftime("%a. %B %d, %Y") %></b></p>
-      </li>
-  <% end %>
-</ol>
-
-
-<h3>MODEL METHODS: Here are the toys your <em>past</em> rentals!</h3>
+<h3>Here are the toys your <em>past</em> rentals!</h3>
+<p><em>Using model methods</em></p>
 <ol>
 <% @user.toys.each do |toy| %>
     <% date = toy.past_rental_date(@user)%>
