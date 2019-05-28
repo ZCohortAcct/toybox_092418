@@ -31,11 +31,9 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :toys do
+  resources :toys 
     # resources :toys_users, only: %i(new create update)
-    get '/rental/new', to: 'toys_users#new'
-    post '/rental', to: 'toys_users#create'
-    patch '/rental/:id', to: 'toys_users#update', as: 'rental_update'
-
-  end
+  get '/rental/new', to: 'toys_users#new'
+  post '/rental', to: 'toys_users#create'
+  patch '/rental/:id', to: 'toys_users#update', as: 'rental_update'
 end
