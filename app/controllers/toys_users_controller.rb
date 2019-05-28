@@ -2,7 +2,8 @@ class ToysUsersController < ApplicationController
   before_action :authenticate_user!
   
   def new
-    @toyuser = ToysUser.new(toy_id: params[:toy_id])
+    @toyuser = ToysUser.new()
+    render json: @toyuser
   end
 
   def create
