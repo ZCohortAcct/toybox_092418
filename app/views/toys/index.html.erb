@@ -21,7 +21,13 @@
   <% @toys.each do |toy| %>
     <li>
       <b><%= link_to toy.name, toy_path(toy) %></b> make by <b><%= toy.toymaker.brand  %></b>
-      <%= button_to 'Rent Me', rental_new_path, method: :get if user_signed_in? %>
+      <%= link_to 'Rent Me', '#', {id: 'rentToy', data: {toy_id: toy.id}} if user_signed_in? %>
+      <div id='formRentToy-<%= toy.id%>'>
+      </div>
     </li>
   <% end %>
 </ul>
+
+<div id='hidden' style='display:none'>
+  <%= render 'toys_users/form', {toyuser: ToysUser.new(toy_rent_date: Date.today)}%>
+</div>

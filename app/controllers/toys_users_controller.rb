@@ -7,10 +7,11 @@ class ToysUsersController < ApplicationController
   end
 
   def create
-    # binding.pry
-    rental = ToysUser.new(toys_user_params)
+    rental = current_user.toys_users.build(toys_user_params)
     rental.save
-    redirect_to user_path(rental.user)
+    # binding.pry
+    # redirect_to user_path(rental.user)
+    render json: rental
   end
   
   def update
@@ -22,6 +23,6 @@ class ToysUsersController < ApplicationController
 
   private 
   def toys_user_params
-    params.require(:toys_user).permit(:toy_rent_date, :functional, :toy_id,:user_id)
+    params.require(:toys_user).permit(:toy_rent_date, :functional, :toy_id)
   end
 end
