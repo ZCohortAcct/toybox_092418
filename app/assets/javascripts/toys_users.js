@@ -52,6 +52,36 @@ class ToysUsers {
   }
 
   rentalConfirmation(){
+    // THANK YOU MSG
     alert(`${this.userObj.username} we hope you enjoy ${this.toyObj.name}`)
+
+    // Confirmation: USERNAME (rented/will rent) TOY on DATE
+    let strRentDate = this.rentDate.split('Z')[0]
+    const convertedDate = new Date(strRentDate).toDateString()
+    const todayDate = new Date().toDateString()
+    
+    let confirmMSg = `${this.userObj.username}`
+    if (convertedDate === todayDate) {
+      confirmMSg += ' rented'
+    } else {
+      confirmMSg += ' will rent'
+    }
+    
+    const rentalLength = this.daysBetween(todayDate, convertedDate)
+    // debugger
+    confirmMSg += ` ${this.toyObj.name} in ${rentalLength} days.`
+
+    $('#confirmMessage').html(`<b>${confirmMSg}</b>`)
+  }
+
+  treatAsUTC(date) {
+    var result = new Date(date);
+    result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+    return result;
+  }
+
+  daysBetween(startDate, endDate) {
+    var millisecondsPerDay = 24 * 60 * 60 * 1000;
+    return (this.treatAsUTC(endDate) - this.treatAsUTC(startDate)) / millisecondsPerDay;
   }
 }
