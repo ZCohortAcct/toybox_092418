@@ -1,16 +1,22 @@
 class ToysUsersController < ApplicationController
   before_action :authenticate_user!
-  
+  def show
+    rental = ToysUser.find(params[:id])
+    render json: rental
+  end
+
   def new
     @toyuser = ToysUser.new()
     render json: @toyuser
   end
 
   def create
-    rental = current_user.toys_users.build(toys_user_params)
+    # binding.pry
+    rental = current_user.toys_user.build(toys_user_params)
     rental.save
     # binding.pry
     # redirect_to user_path(rental.user)
+    # render json: [rental, rental.user, rental.toy]
     render json: rental
   end
   

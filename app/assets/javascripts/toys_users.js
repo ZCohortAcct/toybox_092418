@@ -28,11 +28,30 @@ function createRentObj(e, idToy){
   //   }
   // }
 
-  let value = $('form').serialize() 
+  // let value = $('form').serialize() 
+  // value += `&toys_user%5Btoy_id=${idToy}`
 
-  value += `&toys_user%5Btoy_id=${idToy}`
+  let value = $('form').serializeArray() 
+  value.push({name: "toys_user[toy_id]", value: idToy})
 
   $.post('/rental', value, function(resp_obj){
-    debugger
+    // debugger
+    let rental = new ToysUsers(resp_obj)
+    rental.rentalConfirmation()
   })
+}
+
+class ToysUsers {
+  // {id: 3, toy_rent_date: "2019-06-10T00:00:00.000Z", toy_return_date: null, functional: true, user_id: 3, …}
+  constructor(obj) {
+    this.id = obj.id
+    this.userObj = obj.user
+    this.toyObj = obj.toy
+    this.rentDate = obj.toy_rent_date
+    this.functional = obj.functional
+  }
+
+  rentalConfirmation(){
+    alert(`${this.userObj.username} we hope you enjoy ${this.toyObj.name}`)
+  }
 }

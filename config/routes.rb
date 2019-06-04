@@ -33,6 +33,9 @@ Rails.application.routes.draw do
 
   resources :toys 
     # resources :toys_users, only: %i(new create update)
+    
+  # route to test serialer return
+  get 'rental/:id', to: 'toys_users#show'
   get '/rental/new', to: 'toys_users#new'
   post '/rental', to: 'toys_users#create'
   patch '/rental/:id', to: 'toys_users#update', as: 'rental_update'
